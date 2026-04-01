@@ -1,0 +1,53 @@
+ONNX_Exporter - INFO - yolov8_onnx.py:50 - ✅ 版本兼容性校验通过：PyTorch=2.10.0+cpu，ONNX=1.20.1，ONNXRuntime=1.23.2
+ONNX_Exporter - INFO - yolov8_onnx.py:121 - ✅ 最终运行设备：cpu（当前环境CUDA可用：False）
+ONNX_Exporter - INFO - yolov8_onnx.py:153 - 开始加载模型：yolov8，目标设备：cpu
+ONNX_Exporter - INFO - yolov8_onnx.py:165 - 加载自定义权重：weight\yolov8_n.pth
+ONNX_Exporter - INFO - yolov8_onnx.py:182 - ✅ 模型加载完成（已切换到eval模式并移至目标设备）
+ONNX_Exporter - INFO - yolov8_onnx.py:198 - 构造虚拟输入：批次=1，形状=(3, 640, 640)，设备=cpu，数据类型=torch.float32
+ONNX_Exporter - INFO - yolov8_onnx.py:226 - 动态维度配置：{'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}}
+ONNX_Exporter - INFO - yolov8_onnx.py:246 - 开始导出ONNX模型：保存路径=yolov8_bs1_opset12.onnx，算子版本=12
+onnxscript.version_converter - WARNING - __init__.py:104 - The model version conversion is not supported by the onnxscript version converter and fallback is enabled. The model will be converted using the onnx C API (target version: 12).
+onnxscript.version_converter - WARNING - __init__.py:124 - Failed to convert the model to the target version 12 using the ONNX C API. The model was not modified
+Traceback (most recent call last):
+  File "E:\learn\anaconda\envs\pytorch_env\lib\site-packages\onnxscript\version_converter\__init__.py", line 120, in call
+    converted_proto = _c_api_utils.call_onnx_api(
+  File "E:\learn\anaconda\envs\pytorch_env\lib\site-packages\onnxscript\version_converter\_c_api_utils.py", line 65, in call_onnx_api
+    result = func(proto)
+  File "E:\learn\anaconda\envs\pytorch_env\lib\site-packages\onnxscript\version_converter\__init__.py", line 115, in _partial_convert_version
+    return onnx.version_converter.convert_version(
+  File "E:\learn\anaconda\envs\pytorch_env\lib\site-packages\onnx\version_converter.py", line 39, in convert_version
+    converted_model_str = C.convert_version(model_str, target_version)
+RuntimeError: D:\a\onnx\onnx\onnx/version_converter/BaseConverter.h:65: adapter_lookup: Assertion `false` failed: No Adapter To Version $17 for Resize
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:135 - Removed 531 unused nodes
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:152 - No unused functions to remove
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1216 - Skipping constant folding for node 'node_Shape_0' because it is graph input to preserve graph signature
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1216 - Skipping constant folding for node 'node_conv2d' because it is graph input to preserve graph signature
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1271 - Skipping constant folding for node Node(name='node_view_2', domain='', op_type='Reshape', inputs=(Value(name='stack', type=Tensor(FLOAT), shape=Shape([80, 80, 2]), const_value={Tensor(...)}), Value(name='val_673', type=Tensor(INT64), shape=Shape([2]), const_value={Tensor<INT64,[2]>(array([-1,  2]), name='val_673')})), attributes={'allowzero': Attr('allowzero', INT, 1)}, overload='', outputs=(SymbolicTensor(name='view_2', type=Tensor(FLOAT), shape=Shape([6400, 2]), producer='node_view_2', index=0),), version=14, doc_string=None) due to large input sizes: [12800, 2]
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:135 - Removed 489 unused nodes
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:152 - No unused functions to remove
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1216 - Skipping constant folding for node 'node_Shape_0' because it is graph input to preserve graph signature
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1216 - Skipping constant folding for node 'node_Conv_994' because it is graph input to preserve graph signature
+onnxscript.optimizer._constant_folding - INFO - _constant_folding.py:1271 - Skipping constant folding for node Node(name='node_view_2', domain='', op_type='Reshape', inputs=(Value(name='stack', type=Tensor(FLOAT), shape=Shape([80, 80, 2]), const_value={Tensor(...)}), Value(name='val_673', type=Tensor(INT64), shape=Shape([2]), const_value={Tensor<INT64,[2]>(array([-1,  2]), name='val_673')})), attributes={'allowzero': Attr('allowzero', INT, 1)}, overload='', outputs=(SymbolicTensor(name='view_2', type=Tensor(FLOAT), shape=Shape([6400, 2]), producer='node_view_2', index=0),), version=14, doc_string=None) due to large input sizes: [12800, 2]
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:135 - Removed 5 unused nodes
+onnx_ir.passes.common.unused_removal - INFO - unused_removal.py:152 - No unused functions to remove
+onnx_ir.passes.common.initializer_deduplication - WARNING - initializer_deduplication.py:24 - Skipped deduplication of initializer 'transpose_1' as it is a graph input or output
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_355' with existing initializer 'val_310'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_755' with existing initializer 'val_750'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_756' with existing initializer 'val_751'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_760' with existing initializer 'val_750'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_761' with existing initializer 'val_751'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_777' with existing initializer 'val_766'
+onnx_ir.passes.common.initializer_deduplication - INFO - initializer_deduplication.py:106 - Replaced initializer 'val_778' with existing initializer 'val_768'
+ONNX_Exporter - INFO - yolov8_onnx.py:260 - ✅ ONNX模型导出成功：yolov8_bs1_opset12.onnx
+ONNX_Exporter - INFO - yolov8_onnx.py:264 - 开始简化ONNX模型...
+ONNX_Exporter - INFO - yolov8_onnx.py:276 - ✅ ONNX模型简化成功
+ONNX_Exporter - INFO - yolov8_onnx.py:294 - 验证ONNX模型结构完整性...
+ONNX_Exporter - INFO - yolov8_onnx.py:297 - ✅ ONNX模型结构校验通过
+ONNX_Exporter - INFO - yolov8_onnx.py:299 - 验证PyTorch vs ONNX推理结果一致性（任务类型：detection）
+ONNX_Exporter - INFO - yolov8_onnx.py:318 - ✅ 余弦相似度 = 1.000000
+ONNX_Exporter - INFO - yolov8_onnx.py:319 - ✅ MSE 误差 = 0.00000000
+ONNX_Exporter - INFO - yolov8_onnx.py:322 - 🎉 ONNX 与 PyTorch 推理结果完全一致！模型完好可用！
+ONNX_Exporter - INFO - yolov8_onnx.py:330 - 开始性能基准测试：预热10次，测试100次
+ONNX_Exporter - INFO - yolov8_onnx.py:344 - ✅ ONNX 性能测试：平均耗时 30.29 ms/帧
+ONNX_Exporter - INFO - yolov8_onnx.py:345 - ✅ 理论帧率：33.0 FPS
+ONNX_Exporter - INFO - yolov8_onnx.py:386 - 🎉 ONNX模型导出全流程完成！
