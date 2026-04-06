@@ -9,7 +9,7 @@
   
 文件内容介绍
 
-          包含模型网络框架(nets)，模型权重(weight)，导出ONNX文件(yolov8_onnx)，测试模型帧率（test_torch_fps),引用文件(utils)
+          包含模型网络框架(nets)，模型权重(weight)，导出ONNX文件(yolov8_onnx)，测试模型帧率（test_torch_fps),引用文件(utils)，后续更新了onnx导出（onnx_test),引入模型推理（use），可直接输入图片进行识别
 
 
 ONNX模型导出使用手册
