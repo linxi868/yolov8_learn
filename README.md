@@ -2,17 +2,19 @@
 
           此为yolov8.n小模型的导出教学
   
-          适合用来学习ONNX导出和Tensor RT推理引擎的编译
+          适合用来学习ONNX导出和Tensor RT推理引擎的编译,同步配置了ONNX Runtime 推理
   
-          后续会加入如何实现在端侧进行部署
+          后续会加入如何实现在jetson nano b01端侧进行部署
 
   
 文件内容介绍
 
-          包含模型网络框架(nets)，模型权重(weight)，导出ONNX文件(yolov8_onnx)，测试模型帧率（test_torch_fps),引用文件(utils)，后续更新了onnx导出（onnx_test),引入模型推理（use），可直接输入图片进行识别
+          包含模型网络框架(nets)，模型权重(weight)，导出ONNX文件(yolov8_onnx)，测试模型帧率（test_torch_fps),引用文件(utils)，
+          模型导出日志记录（onnx_export),后续更新了onnx导出（onnx_test),引入模型推理ORT（use），可直接输入图片进行识别
+          
 
 
-ONNX模型导出使用手册
+ONNX模型导出使用手册(yolov8_onnx)
 
           本文件引入命令行传参，可通过命令 python yolov8_onnx.py 参数名 参数值 参数名 参数值............回车即可自动执行文件        #可用python yolov8_onnx.py -h 查看参数类型
 
@@ -48,6 +50,9 @@ ONNX模型导出使用手册
           12.主函数
 
 
+use
+
+
 注意事项
 
           1.算子版本过低会导致模型混乱
@@ -67,3 +72,7 @@ ONNX模型导出使用手册
           8.如果动态维度未开，在Tensor RT编译时不可用
   
           9.如需记录每次错误点，可在代码大纲1中设置handlers中设置mode为a,每次运行追加在下面
+
+          10.注意ONNX导出的输入输出名，YOLO的输出头为4+80，
+
+          11.检测框需要去除维度后进行转置，进行最大置信度筛选
